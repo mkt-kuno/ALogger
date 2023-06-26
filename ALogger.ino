@@ -183,8 +183,8 @@ void MainTask(void *pvParameters)  // This is a task.
     local_disp = adc.getResult_V();
 
     // キャリブレーション値を元に計算
-    phy_hx711_a = (float)(CALIB_HX711A_AX * (double)local_hx711_a + CALIB_HX711A_B);
-    phy_hx711_b = (float)(CALIB_HX711B_AX * (double)local_hx711_b + CALIB_HX711B_B);
+    phy_hx711_a = (float)(CALIB_HX711A_AX * (double)local_hx711_a/256.0 + CALIB_HX711A_B);
+    phy_hx711_b = (float)(CALIB_HX711B_AX * (double)local_hx711_b/256.0 + CALIB_HX711B_B);
     phy_displace = (float)(CALIB_DISP_AX * (double)local_disp + CALIB_DISP_B);
 
     // ボタン短押し・長押し処理
