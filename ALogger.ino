@@ -54,7 +54,7 @@ static int32_t st_hx711_a = 0;
 static int32_t st_hx711_b = 0;
 
 int32_t hx711_routine(int32_t * p_st_hx711, uint8_t SCK, uint8_t DOUT) {
-    vTaskDelay(96/portTICK_PERIOD_MS);
+    vTaskDelay(75/portTICK_PERIOD_MS);
     int32_t temp = hx711_read(SCK, DOUT);
     portENTER_CRITICAL();
     {
@@ -302,7 +302,7 @@ void MainTask(void *pvParameters)  // This is a task.
       }
     }
     digitalWrite(LED_BUILTIN, 1);
-    vTaskDelay(96/portTICK_PERIOD_MS);
+    vTaskDelay(75/portTICK_PERIOD_MS);
     digitalWrite(LED_BUILTIN, 0);
   }
 }
